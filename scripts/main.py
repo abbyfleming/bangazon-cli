@@ -52,5 +52,4 @@ def mainMenu():
 		exit()
 
 if __name__ == '__main__':
-	# active_customer = session_manager.SessionManager()
 	mainMenu()
