@@ -37,7 +37,7 @@ class Customer():
 	def get_phone_number(self):
 		return self.__phone_number
 
-	def get_address(self):
+	def get_full_address(self):
 		return "{} {} {} {}".format(self.__address, self.__city, self.__state, self.__zip_code)
 
 	def get_status(self):
