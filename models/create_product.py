@@ -11,22 +11,20 @@ class Product():
 	'''
 
 	def __init__(self, name, description, quantity, category):
-		self.__name = name
-		self.__description = description
-		self.__quantity = quantity
-		self.__category = category
+		self.name = name
+		self.description = description
+		self.quantity = quantity
+		self.category = category
 
 	def get_product_name(self):
-		return self.__name
+		return self.name
 
 	def get_product_description(self):
-		return self.__description
+		return self.description
 
 	def get_product_quantity(self):
-		return self.__quantity
+		return self.quantity
 
-	def get_product_category(self):
-		return self.__category.get_category_name()
 
 
 		

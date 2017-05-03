@@ -9,11 +9,11 @@ class Order():
 	'''
 
 	def __init__(self, product, customer):
-		self.__product = product
-		self.__customer = customer
+		self.product = product
+		self.customer = customer
 
 	def get_customer(self):
-		return self.__customer.get_full_name()
+		return self.customer.get_full_name()
 
 
 		

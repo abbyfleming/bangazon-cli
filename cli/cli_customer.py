@@ -4,13 +4,18 @@ import sys
 sys.path.append("../")
 from models.create_customer import Customer
 
-class CustomerCLI():
+class CLICustomer():
 	"""
-	document
+	The CLICustomer class is the CLI interface for adding a new customer. 
+	After the customer information has been added, it will be saved to the db.
+	The screen will then clear to show the main menu.
 	"""
 
 	def add_customer():
 		'''Create a customer account'''
+
+		# Refactor
+		os.system('cls' if os.name == 'nt' else 'clear')
 
 		name = input('Enter customer name \n> ')
 		address = input('Enter street address \n> ')
@@ -21,10 +26,12 @@ class CustomerCLI():
 
 		# Create a new customer / Instatiate
 		new_customer = Customer(name, address, city, state, postal_code, phone)
-		print("*****new_customer*****", new_customer.name)
 
 		# Save to db
 		new_customer.save(new_customer)
+
+		# Refactor // Clear screen when finished to return to main menu
+		os.system('cls' if os.name == 'nt' else 'clear')
 
 
 		

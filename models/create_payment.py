@@ -10,18 +10,15 @@ class Payment():
 	'''
 
 	def __init__(self, credit_card_name, account_number, customer):
-		self.__credit_card_name = credit_card_name
-		self.__account_number = account_number
-		self.__customer = customer
+		self.credit_card_name = credit_card_name
+		self.account_number = account_number
+		self.customer = customer
 
 	def get_credit_card_name(self):
-		return self.__credit_card_name
+		return self.credit_card_name
 
 	def get_account_number(self):
-		return self.__account_number
-
-	def get_customer(self):
-		return self.__customer.get_full_name()
+		return self.account_number
 
 
 		

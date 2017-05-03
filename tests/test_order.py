@@ -11,14 +11,12 @@ class TestOrder(unittest.TestCase):
 	def setUpClass(self):
 
 		self.suzy = Customer(
-			first_name = "Suzy",
-			last_name = "Bishop",
-			email = "s@s.com",
+			name = "Suzy Bishop",
 			phone_number = "555-999-4444",
 			address = "300 Summers End",
 			city = "New Penzance",
 			state = "Rhode Island",
-			zip_code = "52801"
+			postal_code = "52801"
 			)
 		
 

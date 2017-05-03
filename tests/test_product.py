@@ -32,7 +32,7 @@ class TestProduct(unittest.TestCase):
 		self.assertEqual(10, self.tent.get_product_quantity())
 
 	def test_product_has_category(self):
-		self.assertEqual("Camping", self.tent.get_product_category())
+		self.assertEqual("Camping", self.tent.category.get_category_name())
 
 
 if __name__ == "__main__":

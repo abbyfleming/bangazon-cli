@@ -8,10 +8,10 @@ class Category():
 	'''
 
 	def __init__(self, name):
-		self.__name = name
+		self.name = name
 
 	def get_category_name(self):
-		return self.__name
+		return self.name
 
 
 		
