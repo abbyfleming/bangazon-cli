@@ -5,6 +5,7 @@ import sys
 
 sys.path.append("../")
 from cli_customer import CLICustomer
+from cli_customer_active import CLISelectCustomer
 
 
 def clear():
@@ -30,6 +31,7 @@ def menu_loop():
 
 menu = OrderedDict([
   ('1', CLICustomer.add_customer),
+  ('2', CLISelectCustomer.choose_active)
 ])
 
      

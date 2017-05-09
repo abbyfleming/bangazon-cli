@@ -81,3 +81,29 @@ class Customer():
 							customer.active
 					)
 				)
+
+	def get_all_customers():
+
+		with sqlite3.connect("bangazon_cli.db") as bang:
+			cursor = bang.cursor()
+
+			try:
+				cursor.execute("SELECT * FROM Customer")
+				data = cursor.fetchall()
+				return data
+				
+			except (sqlite3.OperationalError) as err:
+				print(err)
+
+
+	def active_customer(customer_index):
+		with sqlite3.connect("bangazon_cli.db") as bang:
+			cursor = bang.cursor()
+
+			try:
+				cursor.execute("UPDATE Customer SET active = 'True' WHERE customer_id = {}".format(customer_index))
+
+			except (sqlite3.OperationalError) as err:
+				print(err)
+
+
