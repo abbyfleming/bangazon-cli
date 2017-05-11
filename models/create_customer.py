@@ -96,7 +96,7 @@ class Customer():
 				print(err)
 
 
-	def active_customer(customer_index):
+	def set_active_customer(customer_index):
 		with sqlite3.connect("bangazon_cli.db") as bang:
 			cursor = bang.cursor()
 
@@ -107,3 +107,14 @@ class Customer():
 				print(err)
 
 
+	def get_active_customer():
+		with sqlite3.connect("bangazon_cli.db") as bang:
+			cursor = bang.cursor()
+
+			try:
+				cursor.execute("SELECT customer_id FROM Customer WHERE active = 'True'")
+				data = cursor.fetchone()[0] #return only the customer_id
+				return data
+
+			except (sqlite3.OperationalError) as err:
+				print(err)

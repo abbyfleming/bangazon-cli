@@ -31,7 +31,7 @@ class CLISelectCustomer():
 		# error handling
 		if (selection > 0) and (selection < len(customers)):
 			# change active to true
-			active = Customer.active_customer(selection)
+			active = Customer.set_active_customer(selection)
 			
 			# return to menu
 			os.system('cls' if os.name == 'nt' else 'clear')

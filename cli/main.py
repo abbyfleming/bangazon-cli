@@ -6,6 +6,7 @@ import sys
 sys.path.append("../")
 from cli_customer import CLICustomer
 from cli_customer_active import CLISelectCustomer
+from cli_payment import CLIPayment
 
 
 def clear():
@@ -18,8 +19,8 @@ def menu_loop():
  choice = None
  
  # Refactor // Option 7 should be exit
- while choice != 'q':
-   print("Enter 'q' for quit.")
+ while choice != '7':
+   
    for key, value in menu.items():
      print('{}) {}'.format(key, value.__doc__))
    
@@ -31,7 +32,8 @@ def menu_loop():
 
 menu = OrderedDict([
   ('1', CLICustomer.add_customer),
-  ('2', CLISelectCustomer.choose_active)
+  ('2', CLISelectCustomer.choose_active),
+  ('3', CLIPayment.add_payment)
 ])
 
      
