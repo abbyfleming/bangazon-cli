@@ -28,4 +28,16 @@ class Product():
 
 
 
+	def get_all_products():
+
+		with sqlite3.connect("bangazon_cli.db") as bang:
+			cursor = bang.cursor()
+
+			try:
+				cursor.execute("SELECT * FROM Product WHERE quantity > 0")
+				data = cursor.fetchall()
+				return data
+				
+			except (sqlite3.OperationalError) as err:
+				print(err)
 		
