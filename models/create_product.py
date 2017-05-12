@@ -10,9 +10,10 @@ class Product():
 		category FK to Category
 	'''
 
-	def __init__(self, name, description, quantity, category):
+	def __init__(self, name, description, price, quantity, category):
 		self.name = name
 		self.description = description
+		self.price = price
 		self.quantity = quantity
 		self.category = category
 
