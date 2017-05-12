@@ -1,12 +1,12 @@
-
-from collections import OrderedDict
 import os
 import sys
+from collections import OrderedDict
 
 sys.path.append("../")
 from cli_customer import CLICustomer
 from cli_customer_active import CLISelectCustomer
 from cli_payment import CLIPayment
+from cli_product import CLIProduct
 
 
 def clear():
@@ -33,7 +33,8 @@ def menu_loop():
 menu = OrderedDict([
   ('1', CLICustomer.add_customer),
   ('2', CLISelectCustomer.choose_active),
-  ('3', CLIPayment.add_payment)
+  ('3', CLIPayment.add_payment),
+  ('4', CLIProduct.add_product)
 ])
 
      
