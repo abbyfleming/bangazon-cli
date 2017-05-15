@@ -41,3 +41,16 @@ class Product():
 			except (sqlite3.OperationalError) as err:
 				print(err)
 		
+	
+	def get_product(product):
+		with sqlite3.connect("bangazon_cli.db") as bang:
+			cursor = bang.cursor()
+
+			try:
+				cursor.execute("SELECT * FROM Product WHERE product_id = {}".format(product))
+				data = cursor.fetchall()
+				return data
+
+			except (sqlite3.OperationalError) as err:
+				print(err)
+
