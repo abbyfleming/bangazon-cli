@@ -50,4 +50,16 @@ class Order():
 							order.order_complete
 					)
 				)
-		
+
+
+	def get_active_order():
+		with sqlite3.connect("bangazon_cli.db") as bang:
+			cursor = bang.cursor()
+
+			try:
+				cursor.execute("SELECT invoice_id FROM Invoice WHERE order_complete = 'False'")
+				data = cursor.fetchone()[0] #return only the invoice_id of the active order
+				return data
+
+			except (sqlite3.OperationalError) as err:
+				pass

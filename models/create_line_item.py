@@ -8,9 +8,10 @@ class LineItem():
 		order FK to Order
 	'''
 
-	def __init__(self, product, order):
-		self.product = product
+	def __init__(self, order, product):
 		self.order = order
+		self.product = product
+		
 		
 
 	def save(self, line_item):
@@ -35,13 +36,10 @@ class LineItem():
 						)
 					""")
 
-			cursor.execute("""
-				INSERT INTO Payment VALUES (null, "{}", "{}", "{}")
-				""".format(
-							line_item.product,
-							line_item.order
+				cursor.execute("""
+					INSERT INTO LineItem VALUES (null, "{}", "{}")
+					""".format(
+								line_item.order,
+								line_item.product	
+						)
 					)
-				)
-
-
-		
