@@ -29,7 +29,7 @@ class CLISelectCustomer():
 		selection = int(input('\n> '))
 
 		# error handling
-		if (selection > 0) and (selection < len(customers)):
+		if (selection > 0) or (selection < len(customers)):
 			# change active to true
 			active = Customer.set_active_customer(selection)
 			
