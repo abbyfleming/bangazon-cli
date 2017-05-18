@@ -1,8 +1,11 @@
-import os
 import sys
+import os
+
 
 sys.path.append("../")
 from models.create_customer import Customer
+
+from styling import clear
 
 class CLICustomer():
 	"""
@@ -15,7 +18,7 @@ class CLICustomer():
 		'''Create a customer account'''
 
 		# Refactor
-		os.system('cls' if os.name == 'nt' else 'clear')
+		clear()
 
 		name = input('Enter customer name \n> ')
 		address = input('Enter street address \n> ')
@@ -31,7 +34,7 @@ class CLICustomer():
 		new_customer.save(new_customer)
 
 		# Refactor // Clear screen when finished to return to main menu
-		os.system('cls' if os.name == 'nt' else 'clear')
+		clear()
 
 
 		

@@ -24,28 +24,6 @@ class Customer():
 		self.active = False
 
 
-	def get_name(self):
-		return self.name	
-
-	def get_address(self):
-		return self.address
-
-	def get_city(self):
-		return self.city
-
-	def get_state(self):
-		return self.state
-
-	def get_postal_code(self):
-		return self.postal_code
-
-	def get_phone_number(self):
-		return self.phone_number
-
-	def get_active_status(self):
-		return self.active
-
-
 	def save(self, customer):
 
 		# Refactor - move db info into its own file

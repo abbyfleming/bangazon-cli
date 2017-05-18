@@ -3,6 +3,7 @@ import sys
 
 sys.path.append("../")
 from models.create_customer import Customer
+from styling import clear
 
 class CLISelectCustomer():
 	"""
@@ -16,7 +17,7 @@ class CLISelectCustomer():
 		'''Choose active customer'''
 
 		#clear the screen - refactor
-		os.system('cls' if os.name == 'nt' else 'clear')
+		clear()
 		print("Which customer will be active?")
 
 		# TODO: refactor customer display into own function
@@ -34,7 +35,7 @@ class CLISelectCustomer():
 			active = Customer.set_active_customer(selection)
 			
 			# return to menu
-			os.system('cls' if os.name == 'nt' else 'clear')
+			clear()
 		
 		else:
 			print("ERROR.")
