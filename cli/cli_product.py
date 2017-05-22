@@ -41,15 +41,16 @@ class CLIProduct():
 
 		clear()
 		
-		products = Product.get_all_products() #show products
-
-		for index, product in enumerate(products, start=1):
-			print("{}. {}".format(index, product[1]))
-
-		finished = len(products) + 1 # last option should be 'Done adding products'
-		print("{}. {}".format(finished, 'Done adding products'))	
-
 		while True:
+
+			# Refactor - move menu creation to own function
+			products = Product.get_all_products() #show products
+
+			for index, product in enumerate(products, start=1):
+				print("{}. {}".format(index, product[1]))
+
+			finished = len(products) + 1 # last option should be 'Done adding products'
+			print("{}. {}".format(finished, 'Done adding products'))	
 
 			selection = int(input('\n> '))			
 			
@@ -62,6 +63,8 @@ class CLIProduct():
 				self.add_line_item(active, selection)
 			else:
 				self.add_new_order_and_line_item(active, selection)
+
+			clear()
 
 		
 		# finished? show main menu
