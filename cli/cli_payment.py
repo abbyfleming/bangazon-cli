@@ -8,8 +8,10 @@ from models.create_payment import Payment
 class CLIPayment():
 	"""
 	"""
+	def __init__(self):
+	 	pass
 
-	def add_payment():
+	def add_payment(self):
 		'''Create a payment option'''
 
 		# clear the screen

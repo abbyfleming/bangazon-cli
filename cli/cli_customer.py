@@ -13,8 +13,10 @@ class CLICustomer():
 	After the customer information has been added, it will be saved to the db.
 	The screen will then clear to show the main menu.
 	"""
+	def __init__(self):
+	 	pass
 
-	def add_customer():
+	def add_customer(self):
 		'''Create a customer account'''
 
 		# Refactor

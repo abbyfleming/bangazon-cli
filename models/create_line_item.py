@@ -43,3 +43,16 @@ class LineItem():
 								line_item.product	
 						)
 					)
+
+	def get_line_items(invoice):
+
+		with sqlite3.connect("bangazon_cli.db") as bang:
+			cursor = bang.cursor()
+
+			try:
+				cursor.execute("SELECT * FROM LineItem WHERE order_id = {}".format(invoice))
+				data = cursor.fetchall()
+				return data
+
+			except:
+				pass
