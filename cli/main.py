@@ -30,9 +30,9 @@ def menu_loop():
 #adding in the parenthesis instantiates with the init
 # allowing self to be passed around
 menu = OrderedDict([
-	('1', CLICustomer.add_customer),
-	('2', CLISelectCustomer.choose_active),
-	('3', CLIPayment.add_payment),
+	('1', CLICustomer().add_customer),
+	('2', CLISelectCustomer().choose_active),
+	('3', CLIPayment().add_payment),
 	('4', CLIProduct().add_product) 
 ])
 

@@ -12,8 +12,10 @@ class CLISelectCustomer():
 	and the active status will be changed in the database. Once complete, the
 	user will return to the main menu.
 	"""
+	def __init__(self):
+	 	pass
 
-	def choose_active():
+	def choose_active(self):
 		'''Choose active customer'''
 
 		#clear the screen - refactor
