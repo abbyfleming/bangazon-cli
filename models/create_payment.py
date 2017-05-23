@@ -51,3 +51,16 @@ class Payment():
 							payment.customer
 					)
 				)
+
+	def get_payments(customer):
+
+		with sqlite3.connect("bangazon_cli.db") as bang:
+			cursor = bang.cursor()
+
+			try:
+				cursor.execute("SELECT * FROM Payment WHERE customer_id = {}".format(customer))
+				payments = cursor.fetchall()
+				return payments
+
+			except (sqlite3.OperationalError) as err:
+				print(err)
