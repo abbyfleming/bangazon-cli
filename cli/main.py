@@ -18,7 +18,8 @@ def menu_loop():
 	clear() # clear the screen
 	choice = None
  
-	while choice != '7': # 7 is exit
+	# while choice != '7': # 7 is exit
+	while True: # 7 is exit
 
 		for key, value in menu.items():
 			print('{}) {}'.format(key, value.__doc__))

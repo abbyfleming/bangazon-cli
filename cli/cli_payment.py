@@ -4,6 +4,7 @@ import sys
 sys.path.append("../")
 from models.create_customer import Customer
 from models.create_payment import Payment
+from styling import clear
 
 class CLIPayment():
 	"""
@@ -15,7 +16,7 @@ class CLIPayment():
 		'''Create a payment option'''
 
 		# clear the screen
-		os.system('cls' if os.name == 'nt' else 'clear')	
+		clear()	
 		
 		# input (Enter payment type (e.g. AmEx, Visa, Checking))
 		payment_type = input('Enter payment type (e.g. AmEx, Visa, Checking) \n> ')
@@ -31,4 +32,4 @@ class CLIPayment():
 		new_payment.save(new_payment)
 
 		# clear the screen / return to menu
-		os.system('cls' if os.name == 'nt' else 'clear')
+		clear()
