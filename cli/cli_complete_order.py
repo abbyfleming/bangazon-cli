@@ -37,7 +37,12 @@ class CLICompleteOrder():
 		selection = int(input('\n> '))
 		choice = menu[selection - 1][1] # payment_id
 
-		print(choice)
+		print("*****choice*****", choice)
+
+		Order.complete_order(choice)
+		print("complete")
+
+		# update Invoice Payment to choice & set order_complete to True
 
 
 

@@ -18,6 +18,8 @@ class CLIProduct():
 	def __init__(self):
 	 	pass
 	
+
+	# refactor / move customer into save new order
 	def add_new_order_and_line_item(self, active, selection):
 		customer = Customer.get_active_customer()
 		new_order = Order(customer)
@@ -35,6 +37,32 @@ class CLIProduct():
 		line_item = LineItem(active, new_product)
 		line_item.save(line_item)
 
+
+	
+	# refactor / rename / break?
+	def select_prduct(self, finished):
+		while True:		
+			selection = int(input('\n> '))	
+			
+			if selection == finished:
+				break
+			
+			# refactor // if there is not an active order, create order in active order
+
+			active = Order.get_active_order() # is there an active order?
+
+			if active:
+				print("yay, active order")
+				self.add_line_item(active, selection)
+			else:
+
+				# basically replacing this logic
+				print("yo, there's not an active order")
+				self.add_new_order_and_line_item(active, selection)
+
+		clear()
+
+	
 	
 	def add_product(self):
 		'''Add product to shopping cart'''
@@ -52,21 +80,9 @@ class CLIProduct():
 			finished = len(products) + 1 # last option should be 'Done adding products'
 			print("{}. {}".format(finished, 'Done adding products'))	
 
-			selection = int(input('\n> '))			
-			
-			if selection == finished:
-				break
-			
-			active = Order.get_active_order() # is there an active order?
+			self.select_prduct(finished)
+			break # WHY? when the other loop ends, end this loop too?
 
-			if active:
-				self.add_line_item(active, selection)
-			else:
-				self.add_new_order_and_line_item(active, selection)
-
-			clear()
-
-		
-		# finished? show main menu
 		clear()
+
 

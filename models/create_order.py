@@ -59,7 +59,30 @@ class Order():
 			try:
 				cursor.execute("SELECT invoice_id FROM Invoice WHERE order_complete = 'False'")
 				data = cursor.fetchone()[0] #return only the invoice_id of the active order
+				print("*****data*****", data)
 				return data
 
 			except (sqlite3.OperationalError) as err:
-				pass
+				print(err)
+
+			except (TypeError) as err:
+				print("type err", err)
+
+
+	def complete_order(payment):
+		with sqlite3.connect("bangazon_cli.db") as bang:
+			cursor = bang.cursor()
+
+			try:
+				cursor.execute("UPDATE Invoice SET payment_id = {}, order_complete = 'True'".format(payment))
+
+			except (sqlite3.OperationalError) as err:
+				print(err)
+
+
+			try:
+				# set customer to inactive
+				cursor.execute("UPDATE Customer SET active = 'False'")
+
+			except (sqlite3.OperationalError) as err:
+				print(err)
