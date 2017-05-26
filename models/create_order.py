@@ -64,11 +64,10 @@ class Order():
 			try:
 				cursor.execute("SELECT invoice_id FROM Invoice WHERE order_complete = 'False' AND customer_id = {}".format(customer))
 				data = cursor.fetchone() #return only the invoice_id of the active order
-				
 				return data
 
 			except (sqlite3.OperationalError) as err:
-				pass
+				pass # refactor?
 
 
 

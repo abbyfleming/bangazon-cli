@@ -19,38 +19,45 @@ class CLIProduct():
 	 	pass
 			
 	
+	# Refactor into smaller functions
+
 	def add_product(self):
 		'''Add product to shopping cart'''
 
 		clear()
 		
 		products = Product.get_all_products() #show products
-
-		for index, product in enumerate(products, start=1):
-			print("{}. {}".format(index, product[1]))
-
-		finished = len(products) + 1 # last option should be 'Done adding products'
-		print("{}. {}".format(finished, 'Done adding products'))
-
-		selection = input('> ')
-
-		new_product = Product.get_product(selection)[0][0]		
 		active = Order.get_active_order() # is there an active order?
-		print("*****active*****", active)
 
-		if active is None:
-			# create the order and fetch the id
-			customer = Customer.get_active_customer() # create a new order
-			new_order = Order(customer) # instantiate
-			new_order.save(new_order) # save the order
-			active = Order.get_active_order() # is there an active order?
+		while True:
 			
-			line_item = LineItem(active[0], new_product)
-			line_item.save(line_item)
+			for index, product in enumerate(products, start=1):
+				print("{}. {}".format(index, product[1]))
 
-		else:
-			line_item = LineItem(active[0], new_product)
-			line_item.save(line_item)
-			print("*****line_item saved*****")
+			finished = len(products) + 1 # last option
+			print("{}. {}".format(finished, 'Done adding products'))
+
+			selection = int(input('> '))
+
+			if selection == finished:
+				clear()
+				break
+
+			new_product = Product.get_product(selection)[0][0]		
+
+			if active is None:
+				customer = Customer.get_active_customer() # create a new order
+				new_order = Order(customer) # instantiate
+				new_order.save(new_order) 
+				active = Order.get_active_order() # is there an active order?
+				
+				line_item = LineItem(active[0], new_product)
+				line_item.save(line_item)
+
+			else:
+				line_item = LineItem(active[0], new_product)
+				line_item.save(line_item)
+
+			clear()
 
 
