@@ -1,7 +1,7 @@
 
 -- Delete if exists
-DELETE FROM Product;
-DELETE FROM Category;
+-- DELETE FROM Product;
+-- DELETE FROM Category;
 
 
 DROP TABLE IF EXISTS Product;

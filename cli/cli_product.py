@@ -17,56 +17,47 @@ class CLIProduct():
 	"""
 	def __init__(self):
 	 	pass
+			
 	
-	def add_new_order_and_line_item(self, active, selection):
-		customer = Customer.get_active_customer()
-		new_order = Order(customer)
-		new_order.save(new_order)
+	# Refactor into smaller functions
 
-		active = Order.get_active_order()
-		self.add_line_item(active, selection)
-
-
-	def add_line_item(self, active, selection):
-		# get the product
-		new_product = Product.get_product(selection)[0][0]
-
-		# add line order
-		line_item = LineItem(active, new_product)
-		line_item.save(line_item)
-
-	
 	def add_product(self):
 		'''Add product to shopping cart'''
 
 		clear()
 		
+		products = Product.get_all_products() #show products
+		active = Order.get_active_order() # is there an active order?
+
 		while True:
-
-			# Refactor - move menu creation to own function
-			products = Product.get_all_products() #show products
-
+			
 			for index, product in enumerate(products, start=1):
 				print("{}. {}".format(index, product[1]))
 
-			finished = len(products) + 1 # last option should be 'Done adding products'
-			print("{}. {}".format(finished, 'Done adding products'))	
+			finished = len(products) + 1 # last option
+			print("{}. {}".format(finished, 'Done adding products'))
 
-			selection = int(input('\n> '))			
-			
+			selection = int(input('> '))
+
 			if selection == finished:
+				clear()
 				break
-			
-			active = Order.get_active_order() # is there an active order?
 
-			if active:
-				self.add_line_item(active, selection)
+			new_product = Product.get_product(selection)[0][0]		
+
+			if active is None:
+				customer = Customer.get_active_customer() # create a new order
+				new_order = Order(customer) # instantiate
+				new_order.save(new_order) 
+				active = Order.get_active_order() # is there an active order?
+				
+				line_item = LineItem(active[0], new_product)
+				line_item.save(line_item)
+
 			else:
-				self.add_new_order_and_line_item(active, selection)
+				line_item = LineItem(active[0], new_product)
+				line_item.save(line_item)
 
 			clear()
 
-		
-		# finished? show main menu
-		clear()
 

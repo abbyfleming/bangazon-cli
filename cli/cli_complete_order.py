@@ -21,7 +21,7 @@ class CLICompleteOrder():
 	def display_payment(self):
 		menu = []
 
-		customer = Customer.get_active_customer()
+		customer = Customer.get_active_customer() #move inside of get_payments
 		payments = Payment.get_payments(customer)
 
 		# create a list of lists including the enumerated number at index 0
@@ -30,6 +30,8 @@ class CLICompleteOrder():
 			payment_list.insert(0, index)	
 			menu.append(payment_list)
 		
+		print('\nChoose a payment option') #need some spacing
+
 		# print the menu
 		for item in menu:
 			print("{}. {}".format(item[0], item[2])) # index, card_name
@@ -37,7 +39,13 @@ class CLICompleteOrder():
 		selection = int(input('\n> '))
 		choice = menu[selection - 1][1] # payment_id
 
-		print(choice)
+		Order.complete_order(choice)
+		
+		# update Invoice Payment to choice & set order_complete to True
+
+		print("Your order is complete! Press any key to return to main menu.")	
+
+		clear()
 
 
 
