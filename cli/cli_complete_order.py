@@ -39,21 +39,18 @@ class CLICompleteOrder():
 		selection = int(input('\n> '))
 		choice = menu[selection - 1][1] # payment_id
 
-		Order.complete_order(choice)
+		Order.complete_order(choice) # update payment to choice & set order_complete to True
 		
-		# update Invoice Payment to choice & set order_complete to True
-
 		print("Your order is complete! Press any key to return to main menu.")	
-
+		input('')
 		clear()
 
-
-
+	
 	def complete_order(self):
 		'''Complete an order'''
 
 		clear()
-		active = Order.get_active_order() # is there an active order?
+		active = Order.get_active_order()[0] # is there an active order?		
 
 		if active:
 			total = 0
@@ -72,14 +69,11 @@ class CLICompleteOrder():
 			print("Your order total is {}. Ready to purchase?".format(pretty_total))
 
 			if input('(Y/N) > ').lower() != 'n':
-				# show cards
-				print("show cards")
-
-				self.display_payment()
+				self.display_payment() # show cards
 
 			else: 
-				# show main menu
-				clear()
+				clear() # show main menu
+				
 
 		
 		else:
