@@ -1,5 +1,7 @@
 import sqlite3
 
+from models.create_customer import Customer
+
 class Order():
 	'''
 	Purpose: The Order Class allows a customer to create an order.
@@ -14,6 +16,7 @@ class Order():
 		self.order_complete = False
 
 
+
 	def save(self, order):
 
 		# Refactor - move db info into its own file
@@ -24,7 +27,7 @@ class Order():
 				# Order is a SQL keyword
 				cursor.execute("SELECT * FROM Invoice")
 				orders = cursor.fetchall()
-				print("*****orders*****", orders)
+				
 
 			except sqlite3.OperationalError:
 				cursor.execute("""
@@ -53,20 +56,21 @@ class Order():
 
 
 	def get_active_order():
+		customer = Customer.get_active_customer()
+
 		with sqlite3.connect("bangazon_cli.db") as bang:
 			cursor = bang.cursor()
 
 			try:
-				cursor.execute("SELECT invoice_id FROM Invoice WHERE order_complete = 'False'")
-				data = cursor.fetchone()[0] #return only the invoice_id of the active order
-				print("*****data*****", data)
+				cursor.execute("SELECT invoice_id FROM Invoice WHERE order_complete = 'False' AND customer_id = {}".format(customer))
+				data = cursor.fetchone() #return only the invoice_id of the active order
+				
 				return data
 
 			except (sqlite3.OperationalError) as err:
-				print(err)
+				pass
 
-			except (TypeError) as err:
-				print("type err", err)
+
 
 
 	def complete_order(payment):
