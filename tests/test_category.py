@@ -9,12 +9,13 @@ class TestCategory(unittest.TestCase):
 	@classmethod
 	def setUpClass(self):
 
-		self.camping = Category(
-			name = "Camping"
+		self.flowers = Category(
+			name = "Flowers"
 			)
 
+
 	def test_category_has_name(self):
-		self.assertEqual("Camping", self.camping.get_category_name())
+		self.assertEqual("Flowers", self.flowers.name)
 
 
 if __name__ == "__main__":
