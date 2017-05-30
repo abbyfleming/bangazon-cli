@@ -103,33 +103,3 @@ Your order is complete! Press any key to return to main menu.
 
 # If user entered N, display the main menu again
 ```
-
-Once the order is complete, show the main menu again, where the user can start creating another order.
-
-### See Product Popularity
-
-When selecting this option, you will produce a command line report that looks like the following.
-
-```bash
-Product           Orders     Customers  Revenue
-*******************************************************
-AA Batteries      100         20        $990.90 
-Diapers           50          10        $640.95
-Case of Cracki... 40          30        $270.96
-*******************************************************
-Totals:           190         60        $1,902.81
-
--> Press any key to return to main menu
-```
-
-1. The product column must be 18 characters wide, and will display a maximum of 17 characters for the product name.
-1. The orders column must be 11 characters wide.
-1. The customers column must be 11 characters wide.
-1. The revenue column must be 15 characters wide.
-
-# Requirements
-
-You will create a series of prompts that will allow the user to create various types of data in your ordering system.
-
-1. Start with writing unit tests. As a group, determine the core functionality of the application. Define classes and methods that you think you need to build. Do that before writing the implementation code for core logic. DO NOT WRITE TESTS FOR THE USER INTERFACE (menu and prompts).
-1. All classes and methods must be fully documented with docstrings.
