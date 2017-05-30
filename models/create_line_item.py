@@ -54,8 +54,8 @@ class LineItem():
 				data = cursor.fetchall()
 				return data
 
-			except:
-				pass
+			except (sqlite3.OperationalError) as err:
+				print(err)
 
 
 

@@ -19,23 +19,19 @@ class CLICustomer():
 	def add_customer(self):
 		'''Create a customer account'''
 
-		# Refactor
-		clear()
+		clear() 
 
-		name = input('Enter customer name \n> ')
-		address = input('Enter street address \n> ')
-		city = input('Enter city \n> ')
-		state = input('Enter state \n> ')
-		postal_code = input('Enter postal code \n> ')
-		phone = input('Enter phone number \n> ')
+		name = input('Enter customer name \n> ').strip()
+		address = input('Enter street address \n> ').strip()
+		city = input('Enter city \n> ').strip()
+		state = input('Enter state \n> ').strip()
+		postal_code = input('Enter postal code \n> ').strip()
+		phone = input('Enter phone number \n> ').strip()
 
-		# Create a new customer / Instatiate
+		# Create a new customer & instantiate
 		new_customer = Customer(name, address, city, state, postal_code, phone)
-
-		# Save to db
 		new_customer.save(new_customer)
 
-		# Refactor // Clear screen when finished to return to main menu
 		clear()
 
 
