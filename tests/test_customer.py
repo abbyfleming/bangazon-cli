@@ -20,13 +20,13 @@ class TestCustomer(unittest.TestCase):
 
 	
 	def test_customer_has_name(self):
-		self.assertEqual("Suzy Bishop", self.suzy.get_name())
+		self.assertEqual("Suzy Bishop", self.suzy.name)
 
 	def test_customer_has_phone_number(self):
-		self.assertEqual("555-999-4444", self.suzy.get_phone_number())
+		self.assertEqual("555-999-4444", self.suzy.phone_number)
 
 	def test_customer_default_active_status(self):
-		self.assertFalse(self.suzy.get_active_status())
+		self.assertFalse(self.suzy.active)
 
 
 

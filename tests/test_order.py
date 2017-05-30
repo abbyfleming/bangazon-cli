@@ -18,7 +18,17 @@ class TestOrder(unittest.TestCase):
 			state = "Rhode Island",
 			postal_code = "52801"
 			)
-		
+
+		self.order = Order(self.suzy)
+
+
+
+	def test_order_has_customer(self):
+		self.assertEqual("Suzy Bishop", self.order.customer.name)
+
+	def test_default_status_is_false(self):
+		self.assertFalse(self.order.order_complete)
+
 
 if __name__ == "__main__":
 	unittest.main()

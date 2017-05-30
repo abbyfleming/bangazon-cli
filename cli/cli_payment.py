@@ -8,6 +8,7 @@ from styling import clear
 
 class CLIPayment():
 	"""
+	The CLIPayment class is the CLI interface for creating a payment type. 
 	"""
 	def __init__(self):
 	 	pass
@@ -15,14 +16,10 @@ class CLIPayment():
 	def add_payment(self):
 		'''Create a payment option'''
 
-		# clear the screen
-		clear()	
+		clear()	# clear the screen
 		
-		# input (Enter payment type (e.g. AmEx, Visa, Checking))
-		payment_type = input('Enter payment type (e.g. AmEx, Visa, Checking) \n> ')
-
-		# input account number
-		account_number = input('Enter account number \n')
+		payment_type = input('Enter payment type (e.g. AmEx, Visa, Checking) \n> ').strip()
+		account_number = input('Enter account number \n').strip()
 
 		# get the active customer
 		customer = Customer.get_active_customer()
@@ -31,5 +28,4 @@ class CLIPayment():
 		new_payment = Payment(payment_type, account_number, customer)
 		new_payment.save(new_payment)
 
-		# clear the screen / return to menu
-		clear()
+		clear() # return to menu

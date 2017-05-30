@@ -20,7 +20,6 @@ class CLIProduct():
 			
 	
 	# Refactor into smaller functions
-
 	def add_product(self):
 		'''Add product to shopping cart'''
 

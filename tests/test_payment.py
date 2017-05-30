@@ -20,18 +20,18 @@ class TestPayment(unittest.TestCase):
 			)
 
 		self.card = Payment(
-			credit_card_name = "Visa",
+			payment_type = "Visa",
 			account_number = "000 111 2222",
 			customer = self.suzy
 			)
 
 
 	def test_card_has_name(self):
-		self.assertEqual("Visa", self.card.get_credit_card_name())
+		self.assertEqual("Visa", self.card.payment_type)
 
 	def test_card_has_account_number(self):
-		self.assertEqual("000 111 2222", self.card.get_account_number())
+		self.assertEqual("000 111 2222", self.card.account_number)
 
 	def test_card_has_customer(self):
-		self.assertEqual("Suzy Bishop", self.card.customer.get_name())
+		self.assertEqual("Suzy Bishop", self.card.customer.name)
 
